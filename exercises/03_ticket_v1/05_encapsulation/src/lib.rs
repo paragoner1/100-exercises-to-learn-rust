@@ -34,7 +34,29 @@ pub mod ticket {
         //  - `title` that returns the `title` field.
         //  - `description` that returns the `description` field.
         //  - `status` that returns the `status` field.
+
+        /* In summary:
+All Ticket fields are private
+We provide a public constructor, Ticket::new, that enforces our validation rules on creation
+That's a good start, but it's not enough: apart from creating a Ticket, we also need to interact with it. 
+But how can we access the fields if they're private?
+
+We need to provide accessor methods.
+Accessor methods are public methods that allow you to read the value of a private field (or fields) of a struct.
+
+Rust doesn't have a built-in way to generate accessor methods for you, like some other languages do. 
+You have to write them yourself—they're just regular methods. */
+       pub fn title(self) -> String { 
+            self.title
+        }
+        pub fn description(self) -> String {
+            self.description
+        }
+        pub fn status(self) -> String {
+            self.status
+        }    
     }
+
 }
 
 #[cfg(test)]

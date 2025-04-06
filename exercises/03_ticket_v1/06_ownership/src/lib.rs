@@ -34,16 +34,17 @@ impl Ticket {
         }
     }
 
-    pub fn title(self) -> String {
-        self.title
+    pub fn title(&self) -> &String { // says "borrow self" instead of "take ownership of self", and returns a reference to the title
+        &self.title                 // here's where we return a reference to the title
+    }                               // can't borrow self and return string, because string is owned by self, so have to return a reference to it
+    
+
+    pub fn description(&self) -> &String {
+        &self.description
     }
 
-    pub fn description(self) -> String {
-        self.description
-    }
-
-    pub fn status(self) -> String {
-        self.status
+    pub fn status(&self) -> &String {
+        &self.status
     }
 }
 
